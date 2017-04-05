@@ -1,51 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06fc7326-46d7-47de-b0cd-e706080a1d1f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/builds/.gitkeep" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/dist/.gitkeep" afterPath="$PROJECT_DIR$/app/dist/.gitkeep" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/icons/icon.icns" afterPath="$PROJECT_DIR$/app/icons/icon.icns" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/icons/icon.ico" afterPath="$PROJECT_DIR$/app/icons/icon.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/Aaux.ttf" afterPath="$PROJECT_DIR$/app/src/renderer/Aaux.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/components/header/avatar.jpg" afterPath="$PROJECT_DIR$/app/src/renderer/components/header/avatar.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task_manager_shot_3.png" afterPath="$PROJECT_DIR$/task_manager_shot_3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.babelrc" afterPath="$PROJECT_DIR$/.babelrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.eslintignore" afterPath="$PROJECT_DIR$/.eslintignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.eslintrc.js" afterPath="$PROJECT_DIR$/.eslintrc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/taskManager.iml" afterPath="$PROJECT_DIR$/.idea/taskManager.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.ejs" afterPath="$PROJECT_DIR$/app/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/package.json" afterPath="$PROJECT_DIR$/app/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/index.dev.js" afterPath="$PROJECT_DIR$/app/src/main/index.dev.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/index.js" afterPath="$PROJECT_DIR$/app/src/main/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/App.vue" afterPath="$PROJECT_DIR$/app/src/renderer/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/common/index.styl" afterPath="$PROJECT_DIR$/app/src/renderer/common/index.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/components/addNew/addNew.vue" afterPath="$PROJECT_DIR$/app/src/renderer/components/addNew/addNew.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/components/content/content.vue" afterPath="$PROJECT_DIR$/app/src/renderer/components/content/content.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/components/edit/edit.vue" afterPath="$PROJECT_DIR$/app/src/renderer/components/edit/edit.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/components/header/header.vue" afterPath="$PROJECT_DIR$/app/src/renderer/components/header/header.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/components/tapBar/tapBar.vue" afterPath="$PROJECT_DIR$/app/src/renderer/components/tapBar/tapBar.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/components/todoItem/todoItem.vue" afterPath="$PROJECT_DIR$/app/src/renderer/components/todoItem/todoItem.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/components/todos/todos.vue" afterPath="$PROJECT_DIR$/app/src/renderer/components/todos/todos.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/main.js" afterPath="$PROJECT_DIR$/app/src/renderer/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/routes.js" afterPath="$PROJECT_DIR$/app/src/renderer/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/vuex/actions.js" afterPath="$PROJECT_DIR$/app/src/renderer/vuex/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/vuex/getters.js" afterPath="$PROJECT_DIR$/app/src/renderer/vuex/getters.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/vuex/modules/counters.js" afterPath="$PROJECT_DIR$/app/src/renderer/vuex/modules/counters.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/vuex/modules/index.js" afterPath="$PROJECT_DIR$/app/src/renderer/vuex/modules/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/vuex/mutation-types.js" afterPath="$PROJECT_DIR$/app/src/renderer/vuex/mutation-types.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/renderer/vuex/store.js" afterPath="$PROJECT_DIR$/app/src/renderer/vuex/store.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/css/reset.css" afterPath="$PROJECT_DIR$/app/static/css/reset.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.js" afterPath="$PROJECT_DIR$/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/reset.css" afterPath="$PROJECT_DIR$/static/css/reset.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.main.config.js" afterPath="$PROJECT_DIR$/webpack.main.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.renderer.config.js" afterPath="$PROJECT_DIR$/webpack.renderer.config.js" />
-    </list>
+    <list default="true" id="06fc7326-46d7-47de-b0cd-e706080a1d1f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -508,12 +464,12 @@
       <option name="presentableId" value="Default" />
       <updated>1491099232250</updated>
       <workItem from="1491099281545" duration="40247000" />
-      <workItem from="1491186032004" duration="20874000" />
+      <workItem from="1491186032004" duration="20962000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61121000" />
+    <option name="totallyTimeSpent" value="61209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="723" extended-state="6" />
