@@ -25,6 +25,9 @@
         props: {
             projects: {
                 type: Object
+            },
+            length: {
+                type: Number
             }
         },
         data () {
@@ -63,6 +66,7 @@
             commit () {
                 this.$emit('cancel', false);
                 let data = {
+                    id: this.length + 1,
                     title: this.title,
                     description: this.des,
                     project: this.selected,
@@ -154,7 +158,7 @@
             box-sizing: border-box
             padding-top: 6px
             transition: all 0.3s
-            cursor:default
+            cursor: default
             &:hover
                 transform: scale(1.2)
                 box-shadow: 0 0 8px 0 rgb(128, 128, 251)

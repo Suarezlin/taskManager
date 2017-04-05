@@ -1,11 +1,13 @@
 <template>
     <div class="todoitem">
-        <span class="title">{{data.title}}</span>
-        <span class="des">{{data.description}}</span>
+        <span class="title" v-if="!data.isDone">{{data.title}}</span>
+        <span class="title" v-else><del>{{data.title}}</del></span>
+        <span class="des" v-if="!data.isDone">{{data.description}}</span>
+        <span class="des" v-else><del>{{data.description}}</del></span>
         <span class="project" :style='Color'>{{data.project}}</span>
-        <span class="done"></span>
-        <span class="star"></span>
-        <span class="delete"></span>
+        <span class="done" @click="Done" v-if="!data.isDone"><i class="icon-check"></i></span>
+        <span class="star" v-if="!data.isDone"></span>
+        <span class="delete" v-if="!data.isDone"></span>
     </div>
 </template>
 <script>
@@ -23,12 +25,26 @@
                 Color: {}
             };
         },
+        methods: {
+            Done () {
+                this.$emit('done', this.data.id);
+            }
+        },
+        watch: {
+            data: function () {
+                let project = this.data.project;
+                this.projects.data.forEach((item) => {
+                    if (project === item.name) {
+                        this.Color = {background: item.color};
+                        return;
+                    }
+                });
+            }
+        },
         created () {
             let project = this.data.project;
             this.projects.data.forEach((item) => {
                 if (project === item.name) {
-                    console.log(item.name);
-                    console.log({background: item.color});
                     this.Color = {background: item.color};
                     return;
                 }
@@ -64,4 +80,15 @@
             border-radius: 4px
             color: #fff
             margin-left: 15px
+        .done
+            float: right
+            display: inline-block
+            font-size: 18px
+            line-height: 62px
+            color: #999
+            margin-right: 20px
+            transition: all 0.4s
+            &:hover
+                color: limegreen
+                transform: scale(1.6)
 </style>

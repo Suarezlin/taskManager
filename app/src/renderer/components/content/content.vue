@@ -1,14 +1,14 @@
 <template>
     <div class="content">
         <div class="todo-wrapper" v-for="item in comTodo">
-            <todos :data="item" :projects="projects" v-show="item.data.length!=0"></todos>
+            <todos :data="item" :projects="projects" v-show="item.data.length!=0" @done="done"></todos>
         </div>
         <div class="addnew-wrapper">
             <addnew @togglemenu="toggle"></addnew>
         </div>
         <transition name="fade">
             <div class="menu-wrapper" v-show="show">
-                <v-edit :projects="projects" @cancel="toggle" @commit="commit"></v-edit>
+                <v-edit :projects="projects" @cancel="toggle" @commit="commit" :length="todo.length"></v-edit>
             </div>
         </transition>
     </div>
@@ -78,7 +78,6 @@
             let d = new Date();
             let todayTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
             let tomorrowTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() + 1);
-            console.log(tomorrowTime);
             let today = {
                 name: 'Today',
                 data: []
@@ -96,13 +95,19 @@
                 data: []
             };
             this.todo.forEach((item) => {
-                if (item.date === todayTime && !item.isDone) {
-                    today.data.push(item);
-                } else if (item.date === tomorrowTime && !item.isDone) {
-                    tomorrow.data.push(item);
-                } else if (!item.isDone) {
-                    later.data.push(item);
-                } else {
+                let date_year = parseInt(item.date.split('-')[0]);
+                let date_month = parseInt(item.date.split('-')[1]);
+                let date_day = parseInt(item.date.split('-')[2]);
+                if (date_year >= d.getFullYear() && date_month >= (d.getMonth() + 1) && date_day >= d.getDate()) {
+                    if (item.date === todayTime && !item.isDone) {
+                        today.data.push(item);
+                    } else if (item.date === tomorrowTime && !item.isDone) {
+                        tomorrow.data.push(item);
+                    } else if (!item.isDone) {
+                        later.data.push(item);
+                    }
+                }
+                if (item.isDone) {
                     done.data.push(item);
                 }
             });
@@ -113,9 +118,60 @@
         methods: {
             toggle (a) {
                 this.show = !this.show;
+                this.$nextTick(() => {
+                    this.refresh();
+                });
             },
             commit (data) {
                 this.$emit('commit', data);
+            },
+            done (e) {
+                this.$emit('todoDone', e);
+                this.$nextTick(() => {
+                    this.refresh();
+                });
+            },
+            refresh () {
+                let d = new Date();
+                let todayTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+                let tomorrowTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() + 1);
+                console.log(tomorrowTime);
+                let today = {
+                    name: 'Today',
+                    data: []
+                };
+                let tomorrow = {
+                    name: 'Tomorrow',
+                    data: []
+                };
+                let later = {
+                    name: 'Later',
+                    data: []
+                };
+                let done = {
+                    name: 'Done',
+                    data: []
+                };
+                this.todo.forEach((item) => {
+                    let date_year = parseInt(item.date.split('-')[0]);
+                    let date_month = parseInt(item.date.split('-')[1]);
+                    let date_day = parseInt(item.date.split('-')[2]);
+                    if (date_year >= d.getFullYear() && date_month >= (d.getMonth() + 1) && date_day >= d.getDate()) {
+                        if (item.date === todayTime && !item.isDone) {
+                            today.data.push(item);
+                        } else if (item.date === tomorrowTime && !item.isDone) {
+                            tomorrow.data.push(item);
+                        } else if (!item.isDone) {
+                            later.data.push(item);
+                        }
+                    }
+                    if (item.done) {
+                        done.data.push(item);
+                    }
+                });
+                this.comTodo = {
+                    today, tomorrow, later, done
+                };
             }
         }
     };

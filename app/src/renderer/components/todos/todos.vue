@@ -2,7 +2,7 @@
     <div class="todos">
         <div class="title">{{data.name}}</div>
         <div class="item-wrapper" v-for="item in data.data">
-            <todoitem :data="item" :projects="projects"></todoitem>
+            <todoitem :data="item" :projects="projects" @done="done"></todoitem>
         </div>
     </div>
 </template>
@@ -15,6 +15,11 @@
             },
             projects: {
                 type: Object
+            }
+        },
+        methods: {
+            done (e) {
+                this.$emit('done', e);
             }
         },
         components: {

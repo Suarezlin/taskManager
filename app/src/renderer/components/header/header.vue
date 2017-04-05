@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="icon" v-show="isfold" @click="unfold"><i class="icon-three-bars"></i></div>
-        <div class="title">My Task</div>
+        <div class="title">{{name}}</div>
         <div class="user-info">
             <span class="avatar"></span><span class="name">SuarezLin</span>
         </div>
@@ -12,6 +12,9 @@
         props: {
             isfold: {
                 type: Boolean
+            },
+            name: {
+                type: String
             }
         },
         methods: {
