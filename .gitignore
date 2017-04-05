@@ -4,6 +4,7 @@ app/dist/main.js
 app/dist/renderer.js
 app/dist/styles.css
 builds/*
+.idea/*
 node_modules/
 npm-debug.log
 npm-debug.log.*
