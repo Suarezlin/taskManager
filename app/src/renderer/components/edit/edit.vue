@@ -7,7 +7,7 @@
             <date-picker :date="date" :option="option"></date-picker>
         </div>
         <div class="projects">
-            <v-select v-model="selected" :options="options" :placeholder="options[0]"></v-select>
+            <v-select v-model="selected" :options="changeProject" :placeholder="options[0]"></v-select>
         </div>
         <div class="description">
             <textarea placeholder="Description" v-model="des"></textarea>
@@ -91,6 +91,15 @@
                         tag.style.borderColor = item.color;
                     }
                 });
+            }
+        },
+        computed: {
+            changeProject () {
+                let data = [];
+                this.projects.data.forEach((item) => {
+                    data.push(item.name);
+                });
+                return data;
             }
         },
         created () {

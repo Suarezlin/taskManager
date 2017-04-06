@@ -8,7 +8,8 @@
         </div>
         <transition name="fade">
             <div class="menu-wrapper" v-show="show">
-                <v-edit :projects="projects" @cancel="toggle" @commit="commit" :length="todo.length"></v-edit>
+                <v-edit :projects="projects" @cancel="toggle" @commit="commit" :length="todo.length"
+                        ref="edit"></v-edit>
             </div>
         </transition>
     </div>
@@ -124,6 +125,9 @@
             },
             commit (data) {
                 this.$emit('commit', data);
+                this.$nextTick(() => {
+                    this.refresh();
+                });
             },
             done (e) {
                 this.$emit('todoDone', e);
@@ -165,7 +169,7 @@
                             later.data.push(item);
                         }
                     }
-                    if (item.done) {
+                    if (item.isDone) {
                         done.data.push(item);
                     }
                 });

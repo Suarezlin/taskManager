@@ -14,7 +14,7 @@
             <div class="content-wrapper">
                 <transition name="changetab">
                     <router-view :todo="result.ToDos" :projects="result.Projects" @todoDone="todoDone"
-                                 @commit="commit" class="router-hook"></router-view>
+                                 @commit="commit" class="router-hook" ref="content"></router-view>
                 </transition>
                 <!--<v-content :todo="result.ToDos" :projects="result.Projects" @todoDone="todoDone"-->
                 <!--@commit="commit"></v-content>-->
