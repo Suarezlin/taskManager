@@ -1,7 +1,7 @@
 <template>
     <div class="week">
         <div class="todo-wrapper" v-for="item in [month,done]">
-            <todos :data="item" :projects="projects" v-show="item.data.length!=0" @done="doneDone"></todos>
+            <todos :data="item" :projects="projects" v-show="item.data.length!=0" @done="doneDone" @delete="Delete"></todos>
         </div>
     </div>
 </template>
@@ -41,6 +41,12 @@
         methods: {
             doneDone (e) {
                 this.$emit('todoDone', e);
+                this.$nextTick(() => {
+                    this.refresh();
+                });
+            },
+            Delete (e) {
+                this.$emit('delete', e);
                 this.$nextTick(() => {
                     this.refresh();
                 });

@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="todo-wrapper" v-for="item in comTodo">
-            <todos :data="item" :projects="projects" v-show="item.data.length!=0" @done="done"></todos>
+            <todos :data="item" :projects="projects" v-show="item.data.length!=0" @done="done" @delete="Delete"></todos>
         </div>
         <div class="addnew-wrapper">
             <addnew @togglemenu="toggle"></addnew>
@@ -135,6 +135,12 @@
                     this.refresh();
                 });
             },
+            Delete (e) {
+                this.$emit('delete', e);
+                this.$nextTick(() => {
+                    this.refresh();
+                });
+            },
             refresh () {
                 let d = new Date();
                 let todayTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
@@ -185,6 +191,8 @@
         width: 100%
         overflow: auto
         height: 100%
+        .todo-wrapper
+            width: 100%
         .addnew-wrapper
             position: absolute
             top: 66px

@@ -2,7 +2,7 @@
     <div class="todos">
         <div class="title">{{data.name}}</div>
         <div class="item-wrapper" v-for="item in data.data">
-            <todoitem :data="item" :projects="projects" @done="done"></todoitem>
+            <todoitem :data="item" :projects="projects" @done="done" @delete="Delete"></todoitem>
         </div>
     </div>
 </template>
@@ -20,6 +20,9 @@
         methods: {
             done (e) {
                 this.$emit('done', e);
+            },
+            Delete (e) {
+                this.$emit('delete', e);
             }
         },
         components: {
@@ -38,6 +41,7 @@
             line-height: 60px
         .item-wrapper
             border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+            width: 100%
             &:last-child
                 border-bottom: 0
 </style>

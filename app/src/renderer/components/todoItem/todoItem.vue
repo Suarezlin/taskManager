@@ -4,10 +4,13 @@
         <span class="title" v-else><del>{{data.title}}</del></span>
         <span class="des" v-if="!data.isDone">{{data.description}}</span>
         <span class="des" v-else><del>{{data.description}}</del></span>
+        <span class="date" v-if="!data.isDone">{{data.date}}</span>
+        <span class="date" v-else><del>{{data.date}}</del></span>
         <span class="project" :style='Color'>{{data.project}}</span>
-        <span class="done" @click="Done" v-if="!data.isDone"><i class="icon-check"></i></span>
-        <span class="star" v-if="!data.isDone"></span>
-        <span class="delete" v-if="!data.isDone"></span>
+        <div class="button-wrapper">
+            <span class="done" @click="Done" v-if="!data.isDone"><i class="icon-check"></i></span>
+            <span class="delete" @click="Delete" v-if="!data.isDone"><i class="icon-trash"></i></span>
+        </div>
     </div>
 </template>
 <script>
@@ -28,6 +31,9 @@
         methods: {
             Done () {
                 this.$emit('done', this.data.id);
+            },
+            Delete () {
+                this.$emit('delete', this.data.id);
             }
         },
         watch: {
@@ -70,9 +76,18 @@
             display: inline-block
             font-size: 16px
             color: #999
+            line-height: 16px
+            margin-left: 10px
+            max-width: 60%
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        .date
+            color: #000
+            font-size: 12px
             line-height: 62px
-            margin-left: 15px
-            max-width: 80%
+            display: inline-block
+            margin-left: 10px
         .project
             display: inline-block
             font-size: 12px
@@ -80,15 +95,30 @@
             border-radius: 4px
             color: #fff
             margin-left: 15px
-        .done
+        .button-wrapper
             float: right
             display: inline-block
-            font-size: 18px
-            line-height: 62px
-            color: #999
-            margin-right: 20px
-            transition: all 0.4s
-            &:hover
-                color: limegreen
-                transform: scale(1.6)
+            display: flex
+            .done
+                flex: 1
+                display: inline-block
+                font-size: 18px
+                line-height: 62px
+                color: #999
+                margin-right: 20px
+                transition: all 0.4s
+                &:hover
+                    color: limegreen
+                    transform: scale(1.6)
+            .delete
+                flex: 1
+                display: inline-block
+                font-size: 18px
+                line-height: 62px
+                color: #999
+                margin-right: 20px
+                transition: all 0.4s
+                &:hover
+                    color: red
+                    transform: scale(1.6)
 </style>

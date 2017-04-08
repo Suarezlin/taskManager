@@ -14,7 +14,7 @@
             <div class="content-wrapper">
                 <transition name="changetab">
                     <router-view :todo="result.ToDos" :projects="result.Projects" @todoDone="todoDone"
-                                 @commit="commit" class="router-hook" ref="content"></router-view>
+                                 @commit="commit" @delete="Delete" class="router-hook" ref="content"></router-view>
                 </transition>
                 <!--<v-content :todo="result.ToDos" :projects="result.Projects" @todoDone="todoDone"-->
                 <!--@commit="commit"></v-content>-->
@@ -61,14 +61,25 @@
                     }
                 });
             },
+            Delete (e) {
+                for (let i = 0; i < this.result.ToDos.length; i++) {
+                    if (this.result.ToDos[i].id === e) {
+                        this.result.ToDos.splice(i, 1);
+                        localStorage.data = JSON.stringify(this.result);
+                        return;
+                    }
+                }
+            },
             Clean () {
+                let d = new Date();
+                let date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
                 var obj = {
                     ToDos: [{
                         id: 1,
                         title: 'The first to-do',
                         description: 'press "Add a todo" button to add a to-do!',
                         project: 'Coding',
-                        date: '2017-4-3',
+                        date: date,
                         isDone: false
                     }],
                     type: {
@@ -137,13 +148,15 @@
                 let data = JSON.parse(localStorage.data);
                 this.result = data;
             } else {
+                let d = new Date();
+                let date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
                 var obj = {
                     ToDos: [{
                         id: 1,
                         title: 'The first to-do',
                         description: 'press "Add a todo" button to add a to-do!',
                         project: 'Coding',
-                        date: '2017-4-3',
+                        date: date,
                         isDone: false
                     }],
                     type: {

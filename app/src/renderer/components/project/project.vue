@@ -1,7 +1,8 @@
 <template>
     <div class="content">
         <div class="todo-wrapper" v-for="item in [todoUndone , todoDone]">
-            <todos :data="item" :projects="projects" v-show="item.data.length!=0" @done="Donedone"></todos>
+            <todos :data="item" :projects="projects" v-show="item.data.length!=0" @done="Donedone"
+                   @delete="Delete"></todos>
         </div>
     </div>
 </template>
@@ -33,6 +34,12 @@
         methods: {
             Donedone (e) {
                 this.$emit('todoDone', e);
+                this.$nextTick(() => {
+                    this.refresh(this.$route.params.name);
+                });
+            },
+            Delete (e) {
+                this.$emit('delete', e);
                 this.$nextTick(() => {
                     this.refresh(this.$route.params.name);
                 });

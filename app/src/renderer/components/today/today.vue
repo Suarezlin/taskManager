@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="todo-wrapper">
-            <todos :data="todayTodo" :projects="projects" v-show="todayTodo.data.length!=0" @done="done"></todos>
+            <todos :data="todayTodo" :projects="projects" v-show="todayTodo.data.length!=0" @done="done" @delete="Delete"></todos>
             <todos :data="todayTodoDone" :projects="projects" v-show="todayTodoDone.data.length!=0"></todos>
         </div>
     </div>
@@ -54,6 +54,12 @@
         methods: {
             done (e) {
                 this.$emit('todoDone', e);
+                this.$nextTick(() => {
+                    this.refresh();
+                });
+            },
+            Delete (e) {
+                this.$emit('delete', e);
                 this.$nextTick(() => {
                     this.refresh();
                 });
